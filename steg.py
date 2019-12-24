@@ -10,8 +10,13 @@ def to_binary(n) :
     return [math.floor(n / 9),math.floor(n / 3) % 3,n % 3]
 
 #data = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
+
+f = open(sys.argv[2],"r")
+code = f.read().replace("\n","").replace(" ","")
+f.close()
+
 data = []
-for p in sys.argv[2] :
+for p in code :
     data.append(opecode.find(p))
 
 
