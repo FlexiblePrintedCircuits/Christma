@@ -7,7 +7,7 @@
 # M -ポインタの指す値が0なら後のAまでジャンプ 【 if(*p == 0){ goto back } 】
 # A -ポインタの指す値が0でなければ前のMまでジャンプ 【　if(*p == 0) { goto forward }　】
 
-file_path = "./christma_code.txt"
+file_path = "./christma_code.chri"
 
 mem = [0 for i in range(10000)]
 pointer = 0
