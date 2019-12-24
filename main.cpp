@@ -47,10 +47,11 @@ int main(int argc,char* argv[]) {
         printf("%c",mem[pointer]);
     else if(*ptr == opecode[5])
 	scanf("%1c",mem + pointer);
-    else if(*ptr == opecode[6])
-	while(++ptr != program.end() && *ptr != opecode[7]);
-    else if(*ptr == opecode[7])
-	while(--ptr != program.begin() && *ptr != opecode[6]);
+    else if(*ptr == opecode[6] && mem[pointer] == 0)
+        while(++ptr != str.end() && *ptr != opecode[7]);
+    else if(*ptr == opecode[7] && mem[pointer] == 0) 
+	while(--ptr != str.begin() && *ptr != opecode[6]);
+    else if(*ptr == 'A') break;
     else 
       // printf("%c�͕s���Ȗ��߂ł�");
       continue;
