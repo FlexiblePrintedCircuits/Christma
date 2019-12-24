@@ -43,4 +43,13 @@ python read.py hoge.chri
 | インタプリンタ | 機能 |
 |------|------|
 | C++ | 引数を指定せずに実行するとクリスマスツリーのAAが表示される |
-| Python | Christmaのコードが隠し埋め込まれた画像を復号・生成する<br> [復号] python read.py hoge.png<br>[生成] python hoge.png Chrithmaのコード|
+| Python | Christmaのコードが隠し埋め込まれた画像を復号・生成する<br> [復号] python read.py hoge.png<br>[生成] python steg.py poyo.png hoge.chri|
+
+# メンバー
+
+[FPC_COMMUNITY]: https://twitter.com/FPC_COMMUNITY
+[iwancof_ptr]: https://twitter.com/Iwancof_ptr
+[e381x]: https://twitter.com/e381x
+[FlexiblePrintedCircuits][FPC_COMMUNITY]
+[iwancof][iwancof_ptr]
+[kakao][e381x]
