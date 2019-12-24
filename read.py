@@ -3,7 +3,8 @@ import os
 from PIL import Image
 import math
 
-opecode = "><+-.,[]"
+#opecode = "><+-.,[]"
+opecode = "CHRISTMA"
 
 def from_binary(d) :
     return d[2] * 9 + d[1] * 3 + d[0]
@@ -16,6 +17,8 @@ size = rgba_img.size
 data = []
 flag = True
 index = 0
+
+program = ""
 
 for y in range(size[1]) :
     for x in range(size[0]) :
@@ -32,7 +35,17 @@ for y in range(size[1]) :
             flag = False
         
         if(flag) :
-            print(opecode[value])
+            #print(opecode[value], end = "")
+            program += opecode[value]
+
+import subprocess
+
+f = open("tmp.chri","w")
+f.write(program)
+f.close()
+
+subprocess.call("a.exe tmp.chri")
+
 
 
         

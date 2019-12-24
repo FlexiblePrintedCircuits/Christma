@@ -3,7 +3,8 @@ import os
 from PIL import Image
 import math
 
-opecode = "><+-.,[]"
+#opecode = "><+-.,[]#"
+opecode = "CHRISTMA"
 
 def to_binary(n) :
     return [math.floor(n / 9),math.floor(n / 3) % 3,n % 3]
@@ -50,8 +51,6 @@ for y in range(size[1]) :
         result.putpixel((x,y),(r,g,b,a))
 
 result.save(sys.argv[1] + "_steged.png")
-
-
 
 def to_binary(n) :
     return [math.floor(n / 9),math.floor(n / 3) % 3,n % 3]
