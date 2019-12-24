@@ -36,21 +36,21 @@ int main(int argc,char* argv[]) {
 
   for(ptr = str.begin(); ptr != str.end(); ptr++){
     if(*ptr == opecode[0])
-	pointer++;
+	    pointer++;
     else if(*ptr == opecode[1])
-	pointer--;
+	    pointer--;
     else if(*ptr == opecode[2])
-	mem[pointer]++;
+	    mem[pointer]++;
     else if(*ptr == opecode[3])
-	mem[pointer]--;
+	    mem[pointer]--;
     else if(*ptr == opecode[4])
-        printf("%c",mem[pointer]);
+        printf("%c", mem[pointer]);
     else if(*ptr == opecode[5])
-	scanf("%1c",mem + pointer);
+	    scanf("%1c",mem + pointer);
     else if(*ptr == opecode[6])
-	while(++ptr != program.end() && *ptr != opecode[7]);
+	    while(++ptr != str.end() && *ptr != opecode[7]);
     else if(*ptr == opecode[7])
-	while(--ptr != program.begin() && *ptr != opecode[6]);
+	    while(--ptr != str.begin() && *ptr != opecode[6]);
     else 
       // printf("%c�͕s���Ȗ��߂ł�");
       continue;
