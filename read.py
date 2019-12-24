@@ -3,7 +3,8 @@ import os
 from PIL import Image
 import math
 
-opecode = "><+-.,[]"
+#opecode = "><+-.,[]"
+opecode = "CHRISTMA"
 
 def from_binary(d) :
     return d[2] * 9 + d[1] * 3 + d[0]
