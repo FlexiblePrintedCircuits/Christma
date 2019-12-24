@@ -9,12 +9,21 @@
 using namespace std;
 
 int main(int argc,char* argv[]) {
-  if(argc != 2) return -1;
+  if (argc > 2) return -1;
 
-  string file_name = argv[1]; //コマンドライン引数からファイル名を取得
+  string file_name = "tree.bf";
+
+  //コマンドライン引数からファイル名を取得  
+  if (argc == 2) {
+    string file_name = argv[1];
+    string program(argv[1]);
+  }
+
   std::ifstream ifs(file_name);
 
-  string::iterator ptr;
+  std::istreambuf_iterator<char> it(ifs);
+  std::istreambuf_iterator<char> last;
+  std::string str(it, last);
 
   // ファイルが正常に開かなかった時の例外処理
   if (ifs.fail()) {
@@ -22,24 +31,13 @@ int main(int argc,char* argv[]) {
       return -1;
   }
 
-  std::istreambuf_iterator<char> it(ifs);
-  std::istreambuf_iterator<char> last;
-  std::string str(it, last);
-
-  if ((int)(src.length()) == 0) {
-    std::ifstream ifs(file_name);
-    std::istreambuf_iterator<char> it(ifs);
-    std::istreambuf_iterator<char> last;
-    std::string str(it, last);     
-  }
+  string::iterator ptr;
 
   char opecode[] = "><+-.,[]";
   //string opecode = "CHRISTMA";
   
   char mem[10000] = {0};
   long pointer = 0;
-	
-  string program(argv[1]);
   
   for(ptr = str.begin(); ptr != str.end(); ptr++){
     if(*ptr == opecode[0])
