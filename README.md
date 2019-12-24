@@ -26,3 +26,21 @@ CとRとIとSとTとMとAのわずか8種類の命令でプログラムを書く
 
 # 実行
 C++とPython製のインタプリンタをとりあえず用意しています。<br>
+実行対象の.chriファイルを第一引数として渡すだけです。
+
+[C++］
+```
+a.exe hoge.chri
+```
+[Python］
+```
+python read.py hoge.chri
+```
+
+# 機能
+各インタプリンタには以下の機能が備わっています。<br>
+
+| インタプリンタ | 機能 |
+|------|------|
+| C++ | 引数を指定せずに実行するとクリスマスツリーのAAが表示される |
+| Python | Christmaのコードが隠し埋め込まれた画像を復号・生成する<br> [復号] python read.py hoge.png<br>[生成] python hoge.png Chrithmaのコード|
