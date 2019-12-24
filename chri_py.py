@@ -15,6 +15,7 @@ mem = [0 for i in range(10000)]
 pointer = 0
 program_counter = 0
 
+# コマンドライン引数からファイルを取得
 if __name__ == "__main__":
     args = sys.argv
     path = args[1]
