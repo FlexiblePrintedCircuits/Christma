@@ -11,6 +11,8 @@
 
 import sys
 
+file_path = "./tree.chri"
+
 mem = [0 for i in range(10000)]
 pointer = 0
 program_counter = 0
@@ -54,11 +56,11 @@ while program_counter < len(tape):
             nest = 0
             while True:
                 program_counter += 1
-                if tape[program_counter] == '[':
+                if tape[program_counter] == 'M':
                     nest += 1
-                if tape[program_counter] == ']' and nest == 0:
+                if tape[program_counter] == 'A' and nest == 0:
                     break
-                if tape[program_counter] == ']':
+                if tape[program_counter] == 'A':
                     nest -= 1
 
     # A
@@ -67,11 +69,11 @@ while program_counter < len(tape):
             nest = 0
             while True:
                 program_counter -= 1
-                if tape[program_counter] == ']':
+                if tape[program_counter] == 'A':
                     nest += 1
-                if tape[program_counter] == '[' and nest == 0:
+                if tape[program_counter] == 'M' and nest == 0:
                     break
-                if tape[program_counter] == '[':
+                if tape[program_counter] == 'M':
                     nest -= 1
 
     program_counter += 1
