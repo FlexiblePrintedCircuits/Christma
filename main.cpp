@@ -9,12 +9,32 @@
 using namespace std;
 
 int main(int argc,char* argv[]) {
-  if(argc != 2) return -1;
+  if (argc > 2) return -1;
 
-  string file_name = argv[1]; //コマンドライン引数からファイル名を取得
+  string file_name = "tree.chri";
+
+  //コマンドライン引数からファイル名を取得  
+  if (argc == 2) {
+    string file_name = argv[1];
+    string program(argv[1]);
+
+    //拡張子の取得
+    std::string fullpath = argv[1];
+    int ext_i = fullpath.find_last_of(".");
+    std::string extname = fullpath.substr(ext_i,fullpath.size()-ext_i);
+
+    //拡張子が違った場合エラー
+    if (extname != ".chri") {
+        std::cerr << "ERROR: The extension must be 'chri'." << std::endl;
+        return -1;
+    }
+  }
+
   std::ifstream ifs(file_name);
 
-  string::iterator ptr;
+  std::istreambuf_iterator<char> it(ifs);
+  std::istreambuf_iterator<char> last;
+  std::string str(it, last);
 
   // ファイルが正常に開かなかった時の例外処理
   if (ifs.fail()) {
@@ -22,24 +42,14 @@ int main(int argc,char* argv[]) {
       return -1;
   }
 
-  std::istreambuf_iterator<char> it(ifs);
-  std::istreambuf_iterator<char> last;
-  std::string str(it, last);
+  string::iterator ptr;
 
-  if ((int)(src.length()) == 0) {
-    std::ifstream ifs(file_name);
-    std::istreambuf_iterator<char> it(ifs);
-    std::istreambuf_iterator<char> last;
-    std::string str(it, last);     
-  }
-
-  char opecode[] = "><+-.,[]";
+  //char opecode[] = "><+-.,[]";
+  char opecode[] = "CHRISTMA";
   //string opecode = "CHRISTMA";
   
   char mem[10000] = {0};
   long pointer = 0;
-	
-  string program(argv[1]);
   
   for(ptr = str.begin(); ptr != str.end(); ptr++){
     if(*ptr == opecode[0])
@@ -61,8 +71,8 @@ int main(int argc,char* argv[]) {
 	    while(--ptr != str.begin() && *ptr != opecode[6]);
 	    //ptr++;
     }
-    else if(*ptr == 'A')
-        printf("?");
+    //else if(*ptr == 'A')
+    //    printf("?");
     else 
       // printf("%c�͕s���Ȗ��߂ł�");
       continue;
