@@ -26,14 +26,21 @@ int main(int argc,char* argv[]) {
   std::istreambuf_iterator<char> last;
   std::string str(it, last);
 
+  if ((int)(src.length()) == 0) {
+    std::ifstream ifs(file_name);
+    std::istreambuf_iterator<char> it(ifs);
+    std::istreambuf_iterator<char> last;
+    std::string str(it, last);     
+  }
+
   char opecode[] = "><+-.,[]";
   //string opecode = "CHRISTMA";
   
-  long mem[10000] = {0};
+  char mem[10000] = {0};
   long pointer = 0;
 	
   string program(argv[1]);
-
+  
   for(ptr = str.begin(); ptr != str.end(); ptr++){
     if(*ptr == opecode[0])
 	    pointer++;
@@ -44,13 +51,18 @@ int main(int argc,char* argv[]) {
     else if(*ptr == opecode[3])
 	    mem[pointer]--;
     else if(*ptr == opecode[4])
-        printf("%c", mem[pointer]);
+        printf("%c",mem[pointer]);
     else if(*ptr == opecode[5])
 	    scanf("%1c",mem + pointer);
-    else if(*ptr == opecode[6])
-	    while(++ptr != str.end() && *ptr != opecode[7]);
-    else if(*ptr == opecode[7])
+    else if(*ptr == opecode[6] && mem[pointer] == 0) {
+        while(++ptr != str.end() && *ptr != opecode[7]);
+    }
+    else if(*ptr == opecode[7] && mem[pointer] != 0) {
 	    while(--ptr != str.begin() && *ptr != opecode[6]);
+	    //ptr++;
+    }
+    else if(*ptr == 'A')
+        printf("?");
     else 
       // printf("%c�͕s���Ȗ��߂ł�");
       continue;
