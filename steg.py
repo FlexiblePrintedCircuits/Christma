@@ -51,8 +51,6 @@ for y in range(size[1]) :
 
 result.save(sys.argv[1] + "_steged.png")
 
-
-
 def to_binary(n) :
     return [math.floor(n / 9),math.floor(n / 3) % 3,n % 3]
 

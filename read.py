@@ -17,6 +17,8 @@ data = []
 flag = True
 index = 0
 
+program = ""
+
 for y in range(size[1]) :
     for x in range(size[0]) :
         r,g,b,a = rgba_img.getpixel((x,y))
@@ -32,7 +34,17 @@ for y in range(size[1]) :
             flag = False
         
         if(flag) :
-            print(opecode[value])
+            #print(opecode[value], end = "")
+            program += opecode[value]
+
+import subprocess
+
+f = open("tmp.chri","w")
+f.write(program)
+f.close()
+
+subprocess.call("a.exe tmp.chri")
+
 
 
         
