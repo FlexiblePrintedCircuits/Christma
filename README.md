@@ -50,6 +50,6 @@ python read.py hoge.chri
 [FPC_COMMUNITY]: https://twitter.com/FPC_COMMUNITY
 [iwancof_ptr]: https://twitter.com/Iwancof_ptr
 [e381x]: https://twitter.com/e381x
-[FlexiblePrintedCircuits][FPC_COMMUNITY]
-[iwancof][iwancof_ptr]
+[FlexiblePrintedCircuits][FPC_COMMUNITY]/
+[iwancof][iwancof_ptr]/
 [kakao][e381x]
