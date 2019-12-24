@@ -10,9 +10,6 @@
 # A -ポインタの指す値が0でなければ前のMまでジャンプ 【　if(*p == 0) { goto forward }　】
 
 import sys
-
-file_path = "./tree.chri"
-
 mem = [0 for i in range(10000)]
 pointer = 0
 program_counter = 0
