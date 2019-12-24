@@ -11,12 +11,23 @@ using namespace std;
 int main(int argc,char* argv[]) {
   if (argc > 2) return -1;
 
-  string file_name = "tree.bf";
+  string file_name = "tree.chri";
 
   //コマンドライン引数からファイル名を取得  
   if (argc == 2) {
     string file_name = argv[1];
     string program(argv[1]);
+
+    //拡張子の取得
+    std::string fullpath = argv[1];
+    int ext_i = fullpath.find_last_of(".");
+    std::string extname = fullpath.substr(ext_i,fullpath.size()-ext_i);
+
+    //拡張子が違った場合エラー
+    if (extname != ".chri") {
+        std::cerr << "ERROR: The extension must be 'chri'." << std::endl;
+        return -1;
+    }
   }
 
   std::ifstream ifs(file_name);
@@ -33,7 +44,8 @@ int main(int argc,char* argv[]) {
 
   string::iterator ptr;
 
-  char opecode[] = "><+-.,[]";
+  //char opecode[] = "><+-.,[]";
+  char opecode[] = "CHRISTMA";
   //string opecode = "CHRISTMA";
   
   char mem[10000] = {0};
@@ -59,8 +71,8 @@ int main(int argc,char* argv[]) {
 	    while(--ptr != str.begin() && *ptr != opecode[6]);
 	    //ptr++;
     }
-    else if(*ptr == 'A')
-        printf("?");
+    //else if(*ptr == 'A')
+    //    printf("?");
     else 
       // printf("%c�͕s���Ȗ��߂ł�");
       continue;
