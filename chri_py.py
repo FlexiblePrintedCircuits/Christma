@@ -9,13 +9,18 @@
 # M -ポインタの指す値が0なら後のAまでジャンプ 【 if(*p == 0){ goto back } 】
 # A -ポインタの指す値が0でなければ前のMまでジャンプ 【　if(*p == 0) { goto forward }　】
 
-file_path = "./christma_code.chri"
+import sys
 
 mem = [0 for i in range(10000)]
 pointer = 0
 program_counter = 0
 
-tape = open(file_path, "r").read()
+if __name__ == "__main__":
+    args = sys.argv
+    path = args[1]
+    with open(path) as f:
+        code = f.read()
+    tape = list(code)
 
 while program_counter < len(tape):
     # C
