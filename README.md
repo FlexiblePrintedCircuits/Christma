@@ -36,7 +36,8 @@ a.exe hoge.chri
 ```
 python read.py hoge.chri
 ```
-
+※ read.pyでの実行にはpillowというモジュールが必要です。<br>
+pipでインストールできますができない場合はchri_py.pyでも実行できます。
 # 機能
 各インタプリンタには実行の他にも以下の機能が備わっています。<br>
 
